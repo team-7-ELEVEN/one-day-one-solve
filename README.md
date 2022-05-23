@@ -2,14 +2,14 @@
 
 #### Member
 
-|  이름  |
-| :----: |
-| 안민영 |
-| 소범기 |
-| 노누리 |
-| 김애림 |
-| 송가람 |
-| 이상원 |
+|  이름  | fork repo                                                                     |
+| :----: | ----------------------------------------------------------------------------- |
+| 안민영 | [aldrn29/one-day-one-solve](https://github.com/aldrn29/one-day-one-solve)     |
+| 소범기 | [BeomgiSo/one-day-one-solve](https://github.com/BeomgiSo/one-day-one-solve)   |
+| 노누리 | [nohnoori/one-day-one-solve](https://github.com/nohnoori/one-day-one-solve)   |
+| 김애림 | [aemong22/one-day-one-solve](https://github.com/aemong22/one-day-one-solve)   |
+| 송가람 | [songgaram/one-day-one-solve](https://github.com/songgaram/one-day-one-solve) |
+| 이상원 | [nowgnas/one-day-one-solve](https://github.com/nowgnas/one-day-one-solve)     |
 
 ## 스터디 방식
 
