@@ -19,23 +19,9 @@ def print_docs(n, m, score: list):
     answer = 0
     for idx, val in enumerate(score):
         arr.append((val, idx))
-    idx = 0
 
-    for item in range(len(arr)):
-        max_val = max(arr, key=lambda x: x[0])
-        max_val = max_val[0]
-        if max_val != arr[0][0]:
-            pop_val = arr.pop(0)
-            arr.append(pop_val)
-            item += 1
-        elif max_val == arr[0][0]:
-            if arr[1] == m:
-                break
-            else:
-                arr.pop(0)
-                answer += 1
-
-    return answer + 1
+    while True:
+        max_val =
 
 
 if __name__ == '__main__':
@@ -45,7 +31,4 @@ if __name__ == '__main__':
     for test in range(test_case):
         n, m = map(int, inputs().split())
         score = list(map(int, inputs().split()))
-        if n == 1:
-            print(1)
-        else:
-            print(print_docs(n, m, score))
+        print(print_docs(n, m, score))
