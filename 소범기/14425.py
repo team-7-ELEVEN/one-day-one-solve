@@ -38,11 +38,7 @@ icerink
 
 4
 '''
-
-
-if __name__=="__main__":
-    N,M = list(map(int,input().split()))
-    # N개의 입력값 string을 list에 추가한다.
+def solution(N,M):
     check_list = []
     for _ in range(N):
         list_val = input()
@@ -59,4 +55,9 @@ if __name__=="__main__":
         if check_value[i] in check_list:
             count+=1
 
-print(count)
+    return count
+
+
+if __name__=="__main__":
+    N,M = list(map(int,input().split()))
+    print(solution(N,M))
