@@ -6,11 +6,8 @@ import sys
 T = int(sys.stdin.readline())
 
 for _ in range(T):
-    # x는 프린터 기기로 인쇄할 문서 개수
-    # y는 궁금한 문서의 위치
     x, y = list(map(int, sys.stdin.readline().split()))
     imp = list(map(int, sys.stdin.readline().split()))
-    # order은 몇번째로 출력되는지 저장하는 변수
     order = 0
 
     while 1:
