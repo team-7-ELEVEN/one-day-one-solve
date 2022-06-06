@@ -1,3 +1,5 @@
+# 시간초과 날 줄 알았는데 안났다..! 👀
+
 import sys
 input=sys.stdin.readline
 
