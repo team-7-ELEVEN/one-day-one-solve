@@ -1,15 +1,18 @@
+# 범기가 도와줬슴,,,복습하자!
+
 import sys
 input = sys.stdin.readline
-k, n = map(int, input().split())
+N = int(input())
 
-def cal_resident(floor, room):
-    people = []
-    for _ in range(floor):
-        for i in range(1, room + 1):
-            people.append()
-    return people
+for _ in range(N):
+    k = int(input())
+    n = int(input())
 
-print(cal_resident(k, n))
+    init_floor = [i for i in range(1, n + 1)]
 
-# 못해먹겠네
-
+    for _ in range(k):
+        cur_floor = []
+        for i in range(1, n + 1):
+            cur_floor.append(sum(init_floor[:i]))  
+        init_floor = cur_floor
+    print(init_floor[n-1])
