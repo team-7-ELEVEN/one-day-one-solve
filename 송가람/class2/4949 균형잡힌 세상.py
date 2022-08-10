@@ -27,6 +27,6 @@ while True:
     if result or stack:
         print("no")
     else:
-        print("no")
+        print("yes")
     
 
