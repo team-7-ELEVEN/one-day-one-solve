@@ -1,13 +1,30 @@
+import math
 N, M, B = map(int, input().split())
-ground = []
+blocks = []
 for _ in range(N):
     for i in list(map(int, input().split())):
-        ground.append(i)
+        blocks.append(i)
 
-ground.sort()
+min_t = math.inf
+max_h = max(blocks)
+min_h = min(blocks)
 
-add = 0
-discard = 0
+for h in range(max_h, min_h - 1, -1):
+    b = B
+    t = 0
+    for block in blocks:
+        if h > block:
+            b -= h - block
+            t += h - block
+        elif h < block:
+            b += block - h
+            t += (block - h) * 2
 
-# 일단 포기!
-    
+    if b < 0:
+        continue
+
+    elif min_t > t:
+        min_t = t
+        height = h
+        
+print(min_t, height)
