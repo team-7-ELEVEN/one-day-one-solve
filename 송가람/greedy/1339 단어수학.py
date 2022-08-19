@@ -19,16 +19,3 @@ for i in range(len(sorted_dic)):
     ans += sorted_dic[i][1] * num
     num -= 1
 print(ans)
-
-
-
-# a = {}
-# ipt = "abba"
-# idx = 0
-# for i in ipt:
-#     if i in a:
-#         a[i] += 10 ** (len(ipt) - idx - 1)
-#     else:
-#         a[i] = 10 ** (len(ipt) - idx - 1)
-#         idx += 1
-# print(a)
