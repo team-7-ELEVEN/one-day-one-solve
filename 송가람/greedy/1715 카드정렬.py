@@ -1,13 +1,15 @@
+import heapq
 import sys
-input = sys.stdin.readline
 
+input = sys.stdin.readline
 n = int(input())
-cards = [int(input()) for _ in range(n)]
+heap = [int(input()) for _ in range(n)]
+heapq.heapify(heap)
 comb = 0
-while len(cards) > 1:
-    cards.sort()
-    cards[0] = cards[0] + cards[1]
-    comb += cards[0]
-    cards.pop(1)
- 
-print(comb)
+ans = 0
+while len(heap) > 1:
+    comb = heapq.heappop(heap) + heapq.heappop(heap)
+    ans += comb
+    heapq.heappush(heap, comb)
+
+print(ans)
