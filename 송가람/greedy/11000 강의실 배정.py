@@ -1,4 +1,6 @@
 import heapq
+import sys
+input = sys.stdin.readline
 
 n = int(input())
 lec = []
@@ -15,5 +17,5 @@ for i in range(1, n):
     else:
         heapq.heappop(room)
         heapq.heappush(room, lec[i][1])
-        
+
 print(len(room))
