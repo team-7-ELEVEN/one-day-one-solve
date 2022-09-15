@@ -1,8 +1,8 @@
 from sys import stdin
 from collections import deque
-
-row, col = map(int, stdin.readline().split())
-matrix = [stdin.readline().strip() for _ in range(row)]
+input = stdin.readline
+row, col = map(int, input().split())
+matrix = [input().strip() for _ in range(row)]
 visited = [[0]*col for _ in range(row)]
 
 q = deque()
