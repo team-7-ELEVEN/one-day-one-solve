@@ -1,43 +1,81 @@
-# from collections import deque
-# n, m = map(int, input().split())
+from collections import deque
+n, m = map(int, input().split())
 
-# board = [list(input()) for _ in range(n)]
+board = [list(input()) for _ in range(n)]
 
-# r_idx = []
-# b_idx = []
+def move(x, y, xi, yi):
+    while True:
+        x += xi
+        y += yi
+        if board[x][y] == '#':
+            x -= xi
+            y -= yi
+            return x, y
+        elif board[x][y] == 'O':
+            return x, y
 
-# dy = [0, 0, -1, 1]
-# dx = [1, -1, 0, 0]
+# 상하좌우
+dx = [-1, 1, 0, 0]
+dy = [0, 0, -1, 1]
 
-# def bfs():
-#     r, b = deque()
-#     r.append([r_idx[0], r_idx[1]])
-#     b.append([b_idx[0], b_idx[1]])
-#     while r:
-#         y, x = r.popleft()
+def bfs():
+    cnt = 0
+    q = deque()
+    q.append((xr, yr, xb, yb))
+    visited = []
+    visited.append((xr, yr, xb, yb))
 
-#         if r[y][x] == "O":
-#             print(cnt1, cnt2)
-#         elif b[y][x] == "O":
-#             -1
-#         for i in range(4):
-#             ny = y + dy[i]
-#             nx = x + dx[i]
-#             if 0 < ny < n and 0 < nx < m and board[ny][nx] == ".":
-            
-#                 r.append([ny, nx, i])
-#                 board[ny][nx] = " "
-
-
-# for i in range(1, n - 1):
-#     for j in range(1, m - 1):
-#         if board[i][j] == "R":
-#             r_idx(i, j)
-#         elif board[i][j] == "B":
-#             b_idx(i, j)
-
-
-
-
+    while q:
+        if cnt > 10:
+            return -1
         
+        for _ in range(len(q)):
+            rx, ry, bx, by = q.popleft()
+
+            if board[rx][ry] == 'O':
+                return cnt
+            
+            for i in range(4):
+                nrx, nry = move(rx, ry, dx[i], dy[i])
+                nbx, nby = move(bx, by, dx[i], dy[i])
+
+                if board[nbx][nby] == 'O':
+                    continue
+                
+                if nrx == nbx and nry == nby:
+                    if abs(nrx - rx) + abs(nry - ry) < abs(nbx - bx) + abs(nby - by):
+                        nbx -= dx[i]
+                        nby -= dy[i]
+                    else:
+                        nrx -= dx[i]
+                        nry -= dy[i]
+                
+                if (nrx, nry, nbx, nby) not in visited:
+                    visited.append((nrx, nry, nbx, nby))
+                    q.append((nrx, nry, nbx, nby))
+                
+        cnt += 1
+    return -1
+
+for i in range(1, n - 1):
+    for j in range(1, m - 1):
+        if board[i][j] == "R":
+            xr, yr = i, j
+        elif board[i][j] == "B":
+            xb, yb = i, j
+
+print(bfs())
+
+
+# 10 10
+##########
+#RB....#.#
+#..#.....#
+#........#
+#.O......#
+#...#....#
+#........#
+#........#
+#.......##
+##########
 
